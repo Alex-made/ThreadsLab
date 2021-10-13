@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LabWork_Intermediate", "Lab
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LabWork_3", "LabWork_3\LabWork_3.csproj", "{2373A6C2-83AA-4480-ACD6-C60E53475EE2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabWork_4", "LabWork_4\LabWork_4.csproj", "{F77B532F-70CC-46C1-8C34-FE37028F7563}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LabWork_4", "LabWork_4\LabWork_4.csproj", "{F77B532F-70CC-46C1-8C34-FE37028F7563}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabWork_ReaderWriterLockSlim", "LabWork_ReaderWriterLockSlim\LabWork_ReaderWriterLockSlim.csproj", "{1367C926-5074-450B-A9AB-7FA9408B0A14}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{F77B532F-70CC-46C1-8C34-FE37028F7563}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F77B532F-70CC-46C1-8C34-FE37028F7563}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F77B532F-70CC-46C1-8C34-FE37028F7563}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1367C926-5074-450B-A9AB-7FA9408B0A14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1367C926-5074-450B-A9AB-7FA9408B0A14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1367C926-5074-450B-A9AB-7FA9408B0A14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1367C926-5074-450B-A9AB-7FA9408B0A14}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
