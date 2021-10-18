@@ -44,7 +44,7 @@ namespace LabWork_ReaderWriterLockSlim
 		/// <param name="prog">новое изменение программы</param>
 		public void EditNewProgram(string patch, ref int writers)
 		{
-			//Когда мы вызываем EnterWriteLock, выполняемый поток встанет в очередь с пометкой Write и будет ждать своего выполнения
+			//Когда мы вызываем EnterUpgradeableReadLock, выполняемый поток встанет в очередь с пометкой Upgradeable и будет ждать своего выполнения
 			wer.EnterUpgradeableReadLock();
 			try
 			{
