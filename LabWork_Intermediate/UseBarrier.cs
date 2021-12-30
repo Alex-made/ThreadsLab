@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LabWork_3
+namespace LabWork_Intermediate
 {
 	//Объект Barrier приостанавливает параллельное выполнение отдельных задач, пока все задачи не достигнут этого барьера.
 	//На первом этапе каждая задача заполняет данными свой сегмент буфера.Каждая задача, которая завершает заполнение своего сегмента,

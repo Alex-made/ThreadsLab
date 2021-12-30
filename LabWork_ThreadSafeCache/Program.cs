@@ -11,13 +11,104 @@ namespace LabWork_ThreadSafeCache
 		private static readonly object Locker = new object();
 		private static List<Guid> WritedGuids = new List<Guid>();
 
-		//TODO сделать пример с использ. безопасного и небезопасного кэша
+		public class SomeClass<T>
+		{
+			static SomeClass()
+			{
+				SomeStaticField = new List<T>();
+			}
+
+			public SomeClass()
+			{
+				var aa = 11;
+			}
+
+			public static List<T> SomeStaticField;
+
+			public T Id
+			{
+				get;
+				set;
+			}
+
+			public int Sum (int a, int b)
+			{
+				return a + b;
+			}
+		}
+
 		static void Main(string[] args)
 		{
+			//var aa = new SomeClass<int>();
+			//var a = SomeClass<string>.SomeStaticField;
+			//var b = 11;
+			
+			//var s1 = string.Format("{0}{1}", "abc", "cba");
+			//var s2 = "abc" + "cba";
+			//var s3 = "abccba";
+
+			//Console.WriteLine(s1 == s2);
+			//Console.WriteLine((object)s1 == (object)s2);
+			//Console.WriteLine(s2 == s3);
+			//Console.WriteLine((object)s2 == (object)s3);
+
+			//Console.WriteLine((object)s1.GetHashCode());
+			//var os1 = (object) s1;
+			//var os2 = (object) s2;
+			//var os3 = (object)s3;
+			//Console.WriteLine((string) os1 == os2 + " оператор сравнения");
+			//Console.WriteLine(os1.Equals(os2) + " Equals os1 os2");
+			//Console.WriteLine(os2.Equals(os3) + " Equals os2 os3");
+			//Console.WriteLine((object)s2.GetHashCode());
+			//Console.WriteLine((object)s3.GetHashCode());
+
+			//object sync = new object();
+			//var thread = new Thread(() =>
+			//{
+			//	try
+			//	{
+			//		Work();
+			//	}
+			//	finally
+			//	{
+			//		lock (sync)
+			//		{
+			//			Monitor.PulseAll(sync);
+			//		}
+			//	}
+			//});
+			//thread.Start();
+			//lock (sync)
+			//{
+			//	Monitor.Wait(sync);
+			//}
+			//Console.WriteLine("test");
+		
+		//static void Work()
+		//{
+		//	Thread.Sleep(1000);
+		//}
+
+		//Console.ReadLine();
+
 			//почему объект уже инициализирован, хотя value еще не вызван?
 			//как можно лучше сымитировать работу потоков?
-			var myLazy = new LazyMade<List<int>>(() => new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9 });
-			var @object = myLazy.Value;
+			var myLazy = new LazyMade<List<int>>(() =>
+			{
+				return new List<int>
+				{
+					1,
+					2,
+					3,
+					4,
+					5,
+					6,
+					7,
+					8,
+					9
+				};
+			});
+			//var @object = myLazy.Value;
 			var lazy = new Lazy<List<int>>(() => new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9 });
 
 			var cache = new ThreadSafeCache<Guid, string>();

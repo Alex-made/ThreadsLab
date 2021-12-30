@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace LabWork_3
+namespace LabWork_Intermediate
 {
 	class NotSynchronizedCache
 	{
@@ -187,7 +187,7 @@ namespace LabWork_3
 			var tasks = new List<Task>();
 			int itemsWritten = 0;
 
-			// Execute a writer.
+			// Выполнить писателя.
 			tasks.Add(Task.Run(() => {
 				String[] vegetables = { "broccoli", "cauliflower",
 														  "carrot", "sorrel", "baby turnip",
@@ -219,7 +219,7 @@ namespace LabWork_3
 					{
 						String output = String.Empty;
 						items = sc.Count;
-						if (!desc) //если с начала до конца
+						if (!desc) //если от начала до конца
 						{
 							start = 1;
 							step = 1;
@@ -240,15 +240,17 @@ namespace LabWork_3
 					} while (items < itemsWritten | itemsWritten == 0);
 				}));
 			}
-			// Execute a red/update task.
+			// Выполнить таск чтения/обновления. Не совсем корректно работает, т.к. пробегается по кэшу 1 раз и в момент прохода элемента "cucumber" еще может не быть
 			tasks.Add(Task.Run(() => {
 				Thread.Sleep(100);
 				for (int ctr = 1; ctr <= sc.Count; ctr++)
 				{
 					String value = sc.Read(ctr);
 					if (value == "cucumber")
+					{
 						if (sc.AddOrUpdate(ctr, "green bean") != AddOrUpdateStatus.Unchanged)
 							Console.WriteLine("Changed 'cucumber' to 'green bean'");
+					}
 				}
 			}));
 

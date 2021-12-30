@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace LabWork_3
+namespace LabWork_Intermediate
 {
 	class Program
 	{
@@ -65,7 +65,7 @@ namespace LabWork_3
 	static class UseManualResetEvent
 	{
 		private static string commonString;
-		//инициализиуем в несигнальном состоянии и устанавливаем в сигнальное методом set, чтобы ожидающие потоки могли начать работать
+		//инициализиуем в несигнальном состоянии. ожидающие потоки не могут начать работать
 		private static ManualResetEvent mre = new ManualResetEvent(false);
 
 		public static void Run()
@@ -78,16 +78,18 @@ namespace LabWork_3
 				//	Thread.Sleep(100);
 				//}
 				mre.WaitOne();
-				Console.Write("Сообщение от второго потока получено: " + commonString);
+				Console.WriteLine("Запущен первый поток. Сообщение от второго потока получено: " + commonString);
+				//ожидащие потоки снова блокируются
 				mre.Reset();
 			});
 
 			var task2 = new Task(() =>
 			{
 				Thread.Sleep(3000);
-				Console.Write("Записывается сообщение от второго потока");
+				Console.WriteLine("Записывается сообщение от второго потока");
 				commonString = "Сообщение от второго потока";
-				Console.Write("Сообщение от второго потока записано");
+				Console.WriteLine("Сообщение от второго потока записано");
+				//устанавливаем в сигнальное методом set, чтобы ожидающие потоки могли начать работать
 				mre.Set();
 			});
 
@@ -103,7 +105,7 @@ namespace LabWork_3
 	static class UseAutoResetEvent
 	{
 		private static string[] commonString = new string[10];
-		//инициализиуем в несигнальном состоянии и устанавливаем в сигнальное методом set, чтобы ожидающие потоки могли начать работать
+		//инициализиуем в несигнальном состоянии. потоки ожидают выполнения. устанавливаем в сигнальное методом set, чтобы ожидающие потоки могли начать работать
 		private static readonly AutoResetEvent are = new AutoResetEvent(false);
 		public static void Run()
 		{
@@ -154,6 +156,7 @@ namespace LabWork_3
 
 	static class UseLock
 	{
+		//разделяемый ресурс
 		private static string commonString;
 		private static object obj = new ();
 

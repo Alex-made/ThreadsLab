@@ -17,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LabWork_ReaderWriterLockSli
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LabWork_ThreadSafeCache", "LabWork_ThreadSafeCache\LabWork_ThreadSafeCache.csproj", "{71959155-9AF3-4EA3-A8CC-B5800135C178}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabWork_Closures", "LabWork_Closures\LabWork_Closures.csproj", "{5E7E0604-8BEB-4C54-A796-2244EF1DCD20}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LabWork_Closures", "LabWork_Closures\LabWork_Closures.csproj", "{5E7E0604-8BEB-4C54-A796-2244EF1DCD20}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncStateMachine", "AsyncStateMachine\AsyncStateMachine.csproj", "{21A52326-DF05-4318-BF05-B558F08B83F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{5E7E0604-8BEB-4C54-A796-2244EF1DCD20}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E7E0604-8BEB-4C54-A796-2244EF1DCD20}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E7E0604-8BEB-4C54-A796-2244EF1DCD20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21A52326-DF05-4318-BF05-B558F08B83F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21A52326-DF05-4318-BF05-B558F08B83F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21A52326-DF05-4318-BF05-B558F08B83F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21A52326-DF05-4318-BF05-B558F08B83F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -11,7 +11,12 @@ namespace LabWork_ThreadSafeCache
 	public class LazyMade<T>
 	{
 		private Func<T> _creationFunc;
-		private bool _alreadyCreated = false;
+
+		private bool _alreadyCreated
+		{
+			get;
+			set;
+		}
 		private T _objectInstance;
 		private object _lock = new object();
 
